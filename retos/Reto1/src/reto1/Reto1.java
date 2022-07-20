@@ -1,19 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package reto1;
+
 import java.util.Scanner;
-/**
- *
- * @author jjben
- */
+
 public class Reto1 {
 
-    /**
-     * @param args the command line arguments
-     */
     public static String Calcular_Riesgo(double imc, int edad)
     {
         String riesgo = "";
@@ -23,7 +13,9 @@ public class Reto1 {
         if (imc >= 22 && edad >= 45)riesgo = "Alto";
         return riesgo;
     }
-    
+    public static String read(){
+        return this.scanner.nextLine();
+    }
     public static double Calcular_IMC(double masa, double altura)
     {
         double IMC = masa / (altura * altura);
@@ -53,10 +45,10 @@ public class Reto1 {
     
     public static void main(String[] args) 
     {
-        System.out.println(Casos_Pruebas());
+        //System.out.println(Casos_Pruebas());
         // TODO code application logic here
         Scanner sc = new Scanner(System.in);
-        String[] entradas = sc.nextLine().split(" ");
+        String[] entradas = read().split(" ");
         
         double masa = Double.parseDouble(entradas[0]);
         double altura = Double.parseDouble(entradas[1]);
