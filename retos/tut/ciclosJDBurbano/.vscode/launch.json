@@ -1,0 +1,18 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Launch CiclosJDBurbano",
+            "request": "launch",
+            "mainClass": "ciclosjdburbano.CiclosJDBurbano",
+            "projectName": "ciclosJDBurbano_340509ea"
+        },
+        {
+            "name": "Attach to Chrome",
+            "port": 9222,
+            "request": "attach",
+            "type": "pwa-chrome",
+            "webRoot": "${workspaceFolder}"
+        }
+    ]
+}

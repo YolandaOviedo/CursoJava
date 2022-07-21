@@ -10,5 +10,5 @@ package julioXXI;
  * @author jjben
  */
 public class triangulos {
-    
+    System.out.println("Hola Mundo");
 }
