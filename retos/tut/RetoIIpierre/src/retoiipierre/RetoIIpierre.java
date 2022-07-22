@@ -16,6 +16,8 @@ public class RetoIIpierre {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        Reto2ejemplo retoDos = new Reto2ejemplo();
+        retoDos.run();
     }
     
 }

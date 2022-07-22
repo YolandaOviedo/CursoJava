@@ -1,0 +1,18 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Launch RetoIIpierre",
+            "request": "launch",
+            "mainClass": "retoiipierre.RetoIIpierre",
+            "projectName": "RetoIIpierre_168bbfef"
+        },
+        {
+            "name": "Attach to Chrome",
+            "port": 9222,
+            "request": "attach",
+            "type": "pwa-chrome",
+            "webRoot": "${workspaceFolder}"
+        }
+    ]
+}
