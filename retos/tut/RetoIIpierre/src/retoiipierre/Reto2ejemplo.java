@@ -13,28 +13,30 @@ public class Reto2ejemplo
         String[] datos = scanner.nextLine().split(" ");
         BaseDatosProductos base = new BaseDatosProductos();
 
-        Producto nuevoProducto = new Producto(
+        Producto p = new Producto(
             Integer.parseInt(datos[0]), 
             datos[1],
             Double.parseDouble(datos[2]), 
             Integer.parseInt(datos[3]));
         
-        if(operacion.equals("AGREGAR"))
+        if(operacion.equals("AGREGAR") && !base.verificarExistencia(p))
         {
-            if(base.verificacionExistencia(nuevoProducto.getCodigo()))
-            {
-                System.out.println("ERROR");
-            }
-            else
-            {
-                base.agregar(nuevoProducto);
-                System.out.println(base.generarInforme());
-            }
+            base.agregar(p);
+            System.out.println(base.generarInforme());
+        } 
+        else if(operacion.equals("ACTUALIZAR") && base.verificarExistencia(p))
+        {
+            base.actualizar(p);
+            System.out.println(base.generarInforme());
         }
-        // else if ((operacion.equal("ACTUALIZAR")))
-        // {
-
-        // }
+        else if(operacion.equals("BORRAR") && base.verificarExistencia(p))
+        {
+            base.eliminar(p);
+            System.out.println(base.generarInforme());
+        }
+        else {
+            System.out.println("ERROR");
+        }
     }
     
 }
@@ -57,23 +59,33 @@ class BaseDatosProductos
         listaProductos.put(10, new Producto(10, "Jamon", 15000.0, 10));
     }
 
-    public void agregar(Producto productoAgregar)
+    public void agregar(Producto p)
     {
-        listaProductos.put(productoAgregar.getCodigo(), productoAgregar);
+        listaProductos.put(p.getCodigo(), p);
+    }
+    
+    public void actualizar(Producto p)
+    {
+        listaProductos.replace(p.getCodigo(), p);
+    }
+    public void eliminar(Producto p)
+    {
+        //listaProductos.remove(p.getCodigo(), p);
+        listaProductos.remove(p.getCodigo());
     }
 
-    public boolean verificacionExistencia(Integer codigo)
+    public boolean verificarExistencia(Producto p)
     {
-        return listaProductos.containsKey(codigo);
+        return listaProductos.containsKey(p.getCodigo());
 
     }
 
     public double generarInforme()
     {
         double subtotal = 0.0;
-        for( Producto producto : listaProductos.values() )
+        for( Producto p:listaProductos.values() )
         {
-            subtotal += (producto.getPrecio() * producto.getInventario());
+            subtotal += (p.getPrecio() * p.getInventario());
 
         }
         return subtotal;
@@ -103,7 +115,6 @@ class Producto
         this.nombre = nombre;
         this.precio = precio;
         this.inventario = inventario;
-
     }
 
     /**

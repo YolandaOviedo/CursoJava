@@ -1,0 +1,18 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Launch JulioXXI",
+            "request": "launch",
+            "mainClass": "julioxxi.JulioXXI",
+            "projectName": "julioXXI_a9c2cadc"
+        },
+        {
+            "name": "Attach to Chrome",
+            "port": 9222,
+            "request": "attach",
+            "type": "pwa-chrome",
+            "webRoot": "${workspaceFolder}"
+        }
+    ]
+}
